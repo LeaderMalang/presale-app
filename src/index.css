@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.line9 {
+  width: 1px;
+    height: 100%;
+    background-color:rgb(252, 213, 53) !important; 
+    
+}
+
+
+  .absolute.inset-0.flex.h-full.w-full.items-center.justify-center.uppercase.text-white{
+  display: flex;
+   justify-content: space-around;
+    padding-top: 0px;
+}
+@media only screen and (max-width: 492px) {
+.line9 {
+    display: none;
+}
+}
+
+.text-gradient {
+  background: linear-gradient(#f320d8 0%, #16a6ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+body {
+  @apply flex min-h-screen flex-col;
+  background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+
+.swiper-wrapper {
+  @apply items-center lg:justify-between;
+}
+
+.gradient-border {
+  @apply relative;
+}
+
+.gradient-border::before {
+  @apply absolute inset-0 rounded-2xl p-0.5 transition-all duration-300;
+  content: "";
+  background: linear-gradient(
+    160deg,
+    #3e1f5e 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient-border:hover::before {
+  @apply p-1;
+  background: linear-gradient(160deg, #3e1f5e 0%, #3e1f5e 100%);
+}
