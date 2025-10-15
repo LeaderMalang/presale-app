@@ -1,0 +1,105 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getContributorEdges",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "contributor",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "weightBps",
+								"type": "uint16"
+							}
+						],
+						"internalType": "struct IProvenanceGraph.ContributorEdge[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "isFinalized",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Interface for the ProvenanceGraph contract.",
+			"kind": "dev",
+			"methods": {},
+			"title": "IProvenanceGraph",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getContributorEdges(uint256)": {
+					"notice": "Retrieves all contributor edges for a given asset."
+				},
+				"isFinalized(uint256)": {
+					"notice": "Returns true if the graph for a given asset has been finalized."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/IProvenanceGraph.sol": "IProvenanceGraph"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IProvenanceGraph.sol": {
+			"keccak256": "0xe9c3dac33cf2b3f7a10a8caf2868af12f07c6457c7a664fac7ae04333562e0d7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b21d7aeb9771c6f14da0d491b5839e58b8fd3c27f5346f094041e8cbf67610ee",
+				"dweb:/ipfs/QmeDX1b8reBbear1bwsY8GxzEV75BGDBA9LZ6YKdwgw1uf"
+			]
+		}
+	},
+	"version": 1
+}

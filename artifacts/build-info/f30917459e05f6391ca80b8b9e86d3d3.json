@@ -1,0 +1,472 @@
+{
+	"id": "f30917459e05f6391ca80b8b9e86d3d3",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/interfaces/IProvenanceGraph.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\n/**\r\n * @title IProvenanceGraph\r\n * @dev Interface for the ProvenanceGraph contract.\r\n */\r\ninterface IProvenanceGraph {\r\n    // A struct to mirror the ContributorEdge in the main contract\r\n    struct ContributorEdge {\r\n        address contributor;\r\n        uint16 weightBps;\r\n    }\r\n\r\n    /**\r\n     * @notice Returns true if the graph for a given asset has been finalized.\r\n     */\r\n    function isFinalized(uint256 _assetId) external view returns (bool);\r\n\r\n    /**\r\n     * @notice Retrieves all contributor edges for a given asset.\r\n     */\r\n    function getContributorEdges(uint256 _assetId) external view returns (ContributorEdge[] memory);\r\n}\r\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/interfaces/IProvenanceGraph.sol": {
+				"IProvenanceGraph": {
+					"abi": [
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "_assetId",
+									"type": "uint256"
+								}
+							],
+							"name": "getContributorEdges",
+							"outputs": [
+								{
+									"components": [
+										{
+											"internalType": "address",
+											"name": "contributor",
+											"type": "address"
+										},
+										{
+											"internalType": "uint16",
+											"name": "weightBps",
+											"type": "uint16"
+										}
+									],
+									"internalType": "struct IProvenanceGraph.ContributorEdge[]",
+									"name": "",
+									"type": "tuple[]"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						},
+						{
+							"inputs": [
+								{
+									"internalType": "uint256",
+									"name": "_assetId",
+									"type": "uint256"
+								}
+							],
+							"name": "isFinalized",
+							"outputs": [
+								{
+									"internalType": "bool",
+									"name": "",
+									"type": "bool"
+								}
+							],
+							"stateMutability": "view",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"details": "Interface for the ProvenanceGraph contract.",
+						"kind": "dev",
+						"methods": {},
+						"title": "IProvenanceGraph",
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"getContributorEdges(uint256)": "5ee7c0f8",
+							"isFinalized(uint256)": "33727c4d"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_assetId\",\"type\":\"uint256\"}],\"name\":\"getContributorEdges\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"contributor\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"weightBps\",\"type\":\"uint16\"}],\"internalType\":\"struct IProvenanceGraph.ContributorEdge[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_assetId\",\"type\":\"uint256\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for the ProvenanceGraph contract.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"IProvenanceGraph\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getContributorEdges(uint256)\":{\"notice\":\"Retrieves all contributor edges for a given asset.\"},\"isFinalized(uint256)\":{\"notice\":\"Returns true if the graph for a given asset has been finalized.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IProvenanceGraph.sol\":\"IProvenanceGraph\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interfaces/IProvenanceGraph.sol\":{\"keccak256\":\"0xe9c3dac33cf2b3f7a10a8caf2868af12f07c6457c7a664fac7ae04333562e0d7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b21d7aeb9771c6f14da0d491b5839e58b8fd3c27f5346f094041e8cbf67610ee\",\"dweb:/ipfs/QmeDX1b8reBbear1bwsY8GxzEV75BGDBA9LZ6YKdwgw1uf\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {
+							"getContributorEdges(uint256)": {
+								"notice": "Retrieves all contributor edges for a given asset."
+							},
+							"isFinalized(uint256)": {
+								"notice": "Returns true if the graph for a given asset has been finalized."
+							}
+						},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/interfaces/IProvenanceGraph.sol": {
+				"ast": {
+					"absolutePath": "contracts/interfaces/IProvenanceGraph.sol",
+					"exportedSymbols": {
+						"IProvenanceGraph": [
+							26
+						]
+					},
+					"id": 27,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".20"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:24:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IProvenanceGraph",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "61:89:0",
+								"text": " @title IProvenanceGraph\n @dev Interface for the ProvenanceGraph contract."
+							},
+							"fullyImplemented": false,
+							"id": 26,
+							"linearizedBaseContracts": [
+								26
+							],
+							"name": "IProvenanceGraph",
+							"nameLocation": "162:16:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "IProvenanceGraph.ContributorEdge",
+									"id": 7,
+									"members": [
+										{
+											"constant": false,
+											"id": 4,
+											"mutability": "mutable",
+											"name": "contributor",
+											"nameLocation": "296:11:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 7,
+											"src": "288:19:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 3,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "288:7:0",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 6,
+											"mutability": "mutable",
+											"name": "weightBps",
+											"nameLocation": "325:9:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 7,
+											"src": "318:16:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint16",
+												"typeString": "uint16"
+											},
+											"typeName": {
+												"id": 5,
+												"name": "uint16",
+												"nodeType": "ElementaryTypeName",
+												"src": "318:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint16",
+													"typeString": "uint16"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "ContributorEdge",
+									"nameLocation": "261:15:0",
+									"nodeType": "StructDefinition",
+									"scope": 26,
+									"src": "254:88:0",
+									"visibility": "public"
+								},
+								{
+									"documentation": {
+										"id": 8,
+										"nodeType": "StructuredDocumentation",
+										"src": "350:92:0",
+										"text": " @notice Returns true if the graph for a given asset has been finalized."
+									},
+									"functionSelector": "33727c4d",
+									"id": 15,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "isFinalized",
+									"nameLocation": "457:11:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 11,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 10,
+												"mutability": "mutable",
+												"name": "_assetId",
+												"nameLocation": "477:8:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 15,
+												"src": "469:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 9,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "469:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "468:18:0"
+									},
+									"returnParameters": {
+										"id": 14,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 13,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 15,
+												"src": "510:4:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 12,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "510:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "509:6:0"
+									},
+									"scope": 26,
+									"src": "448:68:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								},
+								{
+									"documentation": {
+										"id": 16,
+										"nodeType": "StructuredDocumentation",
+										"src": "524:79:0",
+										"text": " @notice Retrieves all contributor edges for a given asset."
+									},
+									"functionSelector": "5ee7c0f8",
+									"id": 25,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "getContributorEdges",
+									"nameLocation": "618:19:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 19,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 18,
+												"mutability": "mutable",
+												"name": "_assetId",
+												"nameLocation": "646:8:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 25,
+												"src": "638:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 17,
+													"name": "uint256",
+													"nodeType": "ElementaryTypeName",
+													"src": "638:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "637:18:0"
+									},
+									"returnParameters": {
+										"id": 24,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 23,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 25,
+												"src": "679:24:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_array$_t_struct$_ContributorEdge_$7_memory_ptr_$dyn_memory_ptr",
+													"typeString": "struct IProvenanceGraph.ContributorEdge[]"
+												},
+												"typeName": {
+													"baseType": {
+														"id": 21,
+														"nodeType": "UserDefinedTypeName",
+														"pathNode": {
+															"id": 20,
+															"name": "ContributorEdge",
+															"nameLocations": [
+																"679:15:0"
+															],
+															"nodeType": "IdentifierPath",
+															"referencedDeclaration": 7,
+															"src": "679:15:0"
+														},
+														"referencedDeclaration": 7,
+														"src": "679:15:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_struct$_ContributorEdge_$7_storage_ptr",
+															"typeString": "struct IProvenanceGraph.ContributorEdge"
+														}
+													},
+													"id": 22,
+													"nodeType": "ArrayTypeName",
+													"src": "679:17:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_array$_t_struct$_ContributorEdge_$7_storage_$dyn_storage_ptr",
+														"typeString": "struct IProvenanceGraph.ContributorEdge[]"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "678:26:0"
+									},
+									"scope": 26,
+									"src": "609:96:0",
+									"stateMutability": "view",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 27,
+							"src": "152:556:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "33:677:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "assetId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "user",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deadline",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IUsageReceiptVerifier.UsageReceipt",
+						"name": "_receipt",
+						"type": "tuple"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_signature",
+						"type": "bytes"
+					}
+				],
+				"name": "verifyAndPayWithReceipt",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)": {
+					"params": {
+						"_receipt": "The UsageReceipt struct containing payment details.",
+						"_signature": "The EIP-712 signature from the user."
+					}
+				}
+			},
+			"title": "IUsageReceiptVerifier Interface",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)": {
+					"notice": "The core function to verify a signed receipt and trigger a payment."
+				}
+			},
+			"notice": "Defines the external functions for the UsageReceiptVerifier contract.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/IUsageReceiptVerifier.sol": "IUsageReceiptVerifier"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IUsageReceiptVerifier.sol": {
+			"keccak256": "0xe5c81ee01e443a060918a51509fccce19a9fd8ce4613e9b8401340abe89aa9ef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://abefffcf6971e379ca96587aaaa4663676b298b9817b79b7d8c7140626ac047f",
+				"dweb:/ipfs/Qmd6kAMv9RNGmuPSZ8z7tg11kv585pTxWqWdMnE1d9s8Cw"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,458 @@
+{
+	"id": "bff16b7d9f029a0fa097002cf6d158e8",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.20",
+	"solcLongVersion": "0.8.20+commit.a1b79de6",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/interfaces/IUsageReceiptVerifier.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.20;\r\n\r\n/**\r\n * @title IUsageReceiptVerifier Interface\r\n * @notice Defines the external functions for the UsageReceiptVerifier contract.\r\n */\r\ninterface IUsageReceiptVerifier {\r\n    /**\r\n     * @dev The UsageReceipt struct defines the data that a user signs off-chain.\r\n     * It must be defined within the interface to be used as a function parameter.\r\n     */\r\n    struct UsageReceipt {\r\n        uint256 assetId;\r\n        uint256 amount;\r\n        address user;\r\n        uint256 nonce;\r\n        uint256 deadline;\r\n    }\r\n\r\n    /**\r\n     * @notice The core function to verify a signed receipt and trigger a payment.\r\n     * @param _receipt The UsageReceipt struct containing payment details.\r\n     * @param _signature The EIP-712 signature from the user.\r\n     */\r\n    function verifyAndPayWithReceipt(UsageReceipt calldata _receipt, bytes calldata _signature) external;\r\n}\r\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/interfaces/IUsageReceiptVerifier.sol": {
+				"IUsageReceiptVerifier": {
+					"abi": [
+						{
+							"inputs": [
+								{
+									"components": [
+										{
+											"internalType": "uint256",
+											"name": "assetId",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "amount",
+											"type": "uint256"
+										},
+										{
+											"internalType": "address",
+											"name": "user",
+											"type": "address"
+										},
+										{
+											"internalType": "uint256",
+											"name": "nonce",
+											"type": "uint256"
+										},
+										{
+											"internalType": "uint256",
+											"name": "deadline",
+											"type": "uint256"
+										}
+									],
+									"internalType": "struct IUsageReceiptVerifier.UsageReceipt",
+									"name": "_receipt",
+									"type": "tuple"
+								},
+								{
+									"internalType": "bytes",
+									"name": "_signature",
+									"type": "bytes"
+								}
+							],
+							"name": "verifyAndPayWithReceipt",
+							"outputs": [],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {
+							"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)": {
+								"params": {
+									"_receipt": "The UsageReceipt struct containing payment details.",
+									"_signature": "The EIP-712 signature from the user."
+								}
+							}
+						},
+						"title": "IUsageReceiptVerifier Interface",
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)": "7f245429"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"assetId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"internalType\":\"struct IUsageReceiptVerifier.UsageReceipt\",\"name\":\"_receipt\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"verifyAndPayWithReceipt\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)\":{\"params\":{\"_receipt\":\"The UsageReceipt struct containing payment details.\",\"_signature\":\"The EIP-712 signature from the user.\"}}},\"title\":\"IUsageReceiptVerifier Interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)\":{\"notice\":\"The core function to verify a signed receipt and trigger a payment.\"}},\"notice\":\"Defines the external functions for the UsageReceiptVerifier contract.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IUsageReceiptVerifier.sol\":\"IUsageReceiptVerifier\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/interfaces/IUsageReceiptVerifier.sol\":{\"keccak256\":\"0xe5c81ee01e443a060918a51509fccce19a9fd8ce4613e9b8401340abe89aa9ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://abefffcf6971e379ca96587aaaa4663676b298b9817b79b7d8c7140626ac047f\",\"dweb:/ipfs/Qmd6kAMv9RNGmuPSZ8z7tg11kv585pTxWqWdMnE1d9s8Cw\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {
+							"verifyAndPayWithReceipt((uint256,uint256,address,uint256,uint256),bytes)": {
+								"notice": "The core function to verify a signed receipt and trigger a payment."
+							}
+						},
+						"notice": "Defines the external functions for the UsageReceiptVerifier contract.",
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/interfaces/IUsageReceiptVerifier.sol": {
+				"ast": {
+					"absolutePath": "contracts/interfaces/IUsageReceiptVerifier.sol",
+					"exportedSymbols": {
+						"IUsageReceiptVerifier": [
+							24
+						]
+					},
+					"id": 25,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".20"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:24:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IUsageReceiptVerifier",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "61:133:0",
+								"text": " @title IUsageReceiptVerifier Interface\n @notice Defines the external functions for the UsageReceiptVerifier contract."
+							},
+							"fullyImplemented": false,
+							"id": 24,
+							"linearizedBaseContracts": [
+								24
+							],
+							"name": "IUsageReceiptVerifier",
+							"nameLocation": "206:21:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "IUsageReceiptVerifier.UsageReceipt",
+									"documentation": {
+										"id": 3,
+										"nodeType": "StructuredDocumentation",
+										"src": "235:179:0",
+										"text": " @dev The UsageReceipt struct defines the data that a user signs off-chain.\n It must be defined within the interface to be used as a function parameter."
+									},
+									"id": 14,
+									"members": [
+										{
+											"constant": false,
+											"id": 5,
+											"mutability": "mutable",
+											"name": "assetId",
+											"nameLocation": "459:7:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 14,
+											"src": "451:15:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 4,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "451:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 7,
+											"mutability": "mutable",
+											"name": "amount",
+											"nameLocation": "485:6:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 14,
+											"src": "477:14:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 6,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "477:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 9,
+											"mutability": "mutable",
+											"name": "user",
+											"nameLocation": "510:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 14,
+											"src": "502:12:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 8,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "502:7:0",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 11,
+											"mutability": "mutable",
+											"name": "nonce",
+											"nameLocation": "533:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 14,
+											"src": "525:13:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 10,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "525:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 13,
+											"mutability": "mutable",
+											"name": "deadline",
+											"nameLocation": "557:8:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 14,
+											"src": "549:16:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 12,
+												"name": "uint256",
+												"nodeType": "ElementaryTypeName",
+												"src": "549:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "UsageReceipt",
+									"nameLocation": "427:12:0",
+									"nodeType": "StructDefinition",
+									"scope": 24,
+									"src": "420:153:0",
+									"visibility": "public"
+								},
+								{
+									"documentation": {
+										"id": 15,
+										"nodeType": "StructuredDocumentation",
+										"src": "581:235:0",
+										"text": " @notice The core function to verify a signed receipt and trigger a payment.\n @param _receipt The UsageReceipt struct containing payment details.\n @param _signature The EIP-712 signature from the user."
+									},
+									"functionSelector": "7f245429",
+									"id": 23,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "verifyAndPayWithReceipt",
+									"nameLocation": "831:23:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 21,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 18,
+												"mutability": "mutable",
+												"name": "_receipt",
+												"nameLocation": "877:8:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 23,
+												"src": "855:30:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_UsageReceipt_$14_calldata_ptr",
+													"typeString": "struct IUsageReceiptVerifier.UsageReceipt"
+												},
+												"typeName": {
+													"id": 17,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 16,
+														"name": "UsageReceipt",
+														"nameLocations": [
+															"855:12:0"
+														],
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 14,
+														"src": "855:12:0"
+													},
+													"referencedDeclaration": 14,
+													"src": "855:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_UsageReceipt_$14_storage_ptr",
+														"typeString": "struct IUsageReceiptVerifier.UsageReceipt"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 20,
+												"mutability": "mutable",
+												"name": "_signature",
+												"nameLocation": "902:10:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 23,
+												"src": "887:25:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_calldata_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 19,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "887:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "854:59:0"
+									},
+									"returnParameters": {
+										"id": 22,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "922:0:0"
+									},
+									"scope": 24,
+									"src": "822:101:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 25,
+							"src": "196:730:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "33:895:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

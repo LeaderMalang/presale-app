@@ -1,0 +1,468 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_assetTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_contributorRegistryAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "AssetDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "GraphIsFinalized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "weightBps",
+						"type": "uint16"
+					}
+				],
+				"name": "InvalidWeight",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "potentialContributor",
+						"type": "address"
+					}
+				],
+				"name": "NotAContributor",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "NotAssetOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "currentWeight",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "newWeight",
+						"type": "uint16"
+					}
+				],
+				"name": "TotalWeightExceeded",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "contributor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "weightBps",
+						"type": "uint16"
+					}
+				],
+				"name": "ContributorEdgeAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "GraphFinalized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "childAssetId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "parentAssetId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "weightBps",
+						"type": "uint16"
+					}
+				],
+				"name": "ParentEdgeAdded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "CONTRIBUTOR_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_contributor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "_weightBps",
+						"type": "uint16"
+					}
+				],
+				"name": "addContributorEdge",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_childAssetId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_parentAssetId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "_weightBps",
+						"type": "uint16"
+					}
+				],
+				"name": "addParentEdge",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "assetToken",
+				"outputs": [
+					{
+						"internalType": "contract IAssetToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contributorRegistry",
+				"outputs": [
+					{
+						"internalType": "contract IContributorRegistry",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "finalize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getContributorEdges",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "contributor",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "weightBps",
+								"type": "uint16"
+							}
+						],
+						"internalType": "struct ProvenanceGraph.ContributorEdge[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getParentEdges",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "parentAssetId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint16",
+								"name": "weightBps",
+								"type": "uint16"
+							}
+						],
+						"internalType": "struct ProvenanceGraph.ParentEdge[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTotalBpsAllocated",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "isFinalized",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Hassan Ali",
+			"kind": "dev",
+			"methods": {
+				"addContributorEdge(uint256,address,uint16)": {
+					"details": "Can only be called by the owner of the `_assetId`.",
+					"params": {
+						"_assetId": "The token ID of the asset.",
+						"_contributor": "The address of the contributor.",
+						"_weightBps": "The share of the contributor in basis points (1-10000)."
+					}
+				},
+				"addParentEdge(uint256,uint256,uint16)": {
+					"details": "Can only be called by the owner of the `_childAssetId`.",
+					"params": {
+						"_childAssetId": "The token ID of the child asset.",
+						"_parentAssetId": "The token ID of the parent asset.",
+						"_weightBps": "The share of the parent asset in basis points (1-10000)."
+					}
+				},
+				"finalize(uint256)": {
+					"details": "Can only be called by the owner of the `_assetId`. The total weight must be less than or equal to 10000 bps.",
+					"params": {
+						"_assetId": "The token ID of the asset to finalize."
+					}
+				}
+			},
+			"title": "ProvenanceGraph",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addContributorEdge(uint256,address,uint16)": {
+					"notice": "Adds a contributor and their contribution weight to an asset's graph."
+				},
+				"addParentEdge(uint256,uint256,uint16)": {
+					"notice": "Adds a parent asset and its contribution weight to a child asset's graph."
+				},
+				"finalize(uint256)": {
+					"notice": "Finalizes the provenance graph for an asset, locking it permanently."
+				},
+				"getContributorEdges(uint256)": {
+					"notice": "Retrieves all contributor edges for a given asset."
+				},
+				"getParentEdges(uint256)": {
+					"notice": "Retrieves all parent asset edges for a given asset."
+				},
+				"getTotalBpsAllocated(uint256)": {
+					"notice": "Returns the total basis points allocated for a given asset."
+				},
+				"isFinalized(uint256)": {
+					"notice": "Returns true if the graph for a given asset has been finalized."
+				}
+			},
+			"notice": "Manages the contribution graph for assets, linking them to contributor wallets and parent assets. The owner of an asset is responsible for defining and finalizing its provenance.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProvenanceGraph.sol": "ProvenanceGraph"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ProvenanceGraph.sol": {
+			"keccak256": "0x98d01b9a312ddd370bd870005602132c27d00820ebaec5512f40d5d2162b0e6a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e3424706ab602a9cb20748ed1e4a160d3f03856ada3996ab58e0cba1e09e4479",
+				"dweb:/ipfs/QmQap3rF4omoRs8w8n76wMbTAFn71d5jUN243bJPhsHfjn"
+			]
+		},
+		"contracts/interfaces/IAssetToken.sol": {
+			"keccak256": "0xd5d389b81551bf4034542795274a2c289cb7af05f4c57d342754e546a3d0fd21",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://66a50ed8aa5b90182d37ccb549ceff2c6c79bfd1fe3a8f4dcbcbd0d665d99aec",
+				"dweb:/ipfs/QmTDLqjLsmXCVJvTkmp85NdE7ZyLxjcMXbmyEvMLFEWx1e"
+			]
+		},
+		"contracts/interfaces/IContributorRegistry.sol": {
+			"keccak256": "0xded2d54f6615096f85e49df0de93199e2c05dcbd5909c9641afbc9cbab280ef7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://977b89e11a00cb94ff7cd4de06cc909154ccd5c879ed577805bcf0cc6c65ee2f",
+				"dweb:/ipfs/QmSguGQso8bEuPx4x1y3Whh3DXTMQNkVtVrxzcNyYSnfta"
+			]
+		}
+	},
+	"version": 1
+}

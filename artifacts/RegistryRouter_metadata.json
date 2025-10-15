@@ -1,0 +1,295 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_assetToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_contributorRegistry",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_provenanceGraph",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_royaltySplitFactory",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ZeroAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "assetToken",
+				"outputs": [
+					{
+						"internalType": "contract IAssetToken",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contributorRegistry",
+				"outputs": [
+					{
+						"internalType": "contract IContributorRegistry",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_assetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getAssetFullDetails",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "metadataURI",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "licenseId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isFinalized",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "paymentSplitter",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "target",
+										"type": "address"
+									},
+									{
+										"internalType": "uint16",
+										"name": "weightBps",
+										"type": "uint16"
+									}
+								],
+								"internalType": "struct IProvenanceGraph.Edge[]",
+								"name": "contributorEdges",
+								"type": "tuple[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "target",
+										"type": "address"
+									},
+									{
+										"internalType": "uint16",
+										"name": "weightBps",
+										"type": "uint16"
+									}
+								],
+								"internalType": "struct IProvenanceGraph.Edge[]",
+								"name": "parentEdges",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct RegistryRouter.AssetFullDetails",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_contributor",
+						"type": "address"
+					}
+				],
+				"name": "getContributorDetails",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "profileURI",
+								"type": "string"
+							}
+						],
+						"internalType": "struct RegistryRouter.ContributorDetails",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "provenanceGraph",
+				"outputs": [
+					{
+						"internalType": "contract IProvenanceGraph",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "royaltySplitFactory",
+				"outputs": [
+					{
+						"internalType": "contract IRoyaltySplitFactory",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Your Name",
+			"details": "This contract simplifies off-chain data fetching by bundling multiple on-chain calls into single, convenient view functions. It is stateless.",
+			"kind": "dev",
+			"methods": {
+				"getAssetFullDetails(uint256)": {
+					"params": {
+						"_assetId": "The ID of the asset to query."
+					},
+					"returns": {
+						"_0": "A populated AssetFullDetails struct."
+					}
+				},
+				"getContributorDetails(address)": {
+					"params": {
+						"_contributor": "The address of the contributor."
+					},
+					"returns": {
+						"_0": "A populated ContributorDetails struct."
+					}
+				}
+			},
+			"title": "RegistryRouter",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getAssetFullDetails(uint256)": {
+					"notice": "Fetches all on-chain details for a given asset ID in a single call."
+				},
+				"getContributorDetails(address)": {
+					"notice": "Fetches details for a given contributor address."
+				}
+			},
+			"notice": "A read-only contract that aggregates data from multiple core contracts.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RegistryRouter.sol": "RegistryRouter"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RegistryRouter.sol": {
+			"keccak256": "0xe55438828492a8686d8e8caafa7adf90d577904b26e38b1a16f9363f3f1088f3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a1c9e8af78b7d398dc090df7c4be89ff1964f4f2a7f95ead345f79acd85433c",
+				"dweb:/ipfs/Qmboo26ns5m7u2i5b9rXn8RdnFTE99pLKdfnWEeJUaBpgN"
+			]
+		},
+		"contracts/interfaces/IAssetToken.sol": {
+			"keccak256": "0xd5d389b81551bf4034542795274a2c289cb7af05f4c57d342754e546a3d0fd21",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://66a50ed8aa5b90182d37ccb549ceff2c6c79bfd1fe3a8f4dcbcbd0d665d99aec",
+				"dweb:/ipfs/QmTDLqjLsmXCVJvTkmp85NdE7ZyLxjcMXbmyEvMLFEWx1e"
+			]
+		},
+		"contracts/interfaces/IContributorRegistry.sol": {
+			"keccak256": "0xded2d54f6615096f85e49df0de93199e2c05dcbd5909c9641afbc9cbab280ef7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://977b89e11a00cb94ff7cd4de06cc909154ccd5c879ed577805bcf0cc6c65ee2f",
+				"dweb:/ipfs/QmSguGQso8bEuPx4x1y3Whh3DXTMQNkVtVrxzcNyYSnfta"
+			]
+		},
+		"contracts/interfaces/IProvenanceGraph.sol": {
+			"keccak256": "0xfe265a3d2903187520ccc12d703e3638cf4edec3fe017cdeca61437343bb04c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06194e2104340bbadc63f2192b1ac6b58878b9c54be90c78ee2aec579451b368",
+				"dweb:/ipfs/QmQ4p8DJ534hngPVALiuhM7v5hVnzGjXcyxaCjixmTZ37E"
+			]
+		},
+		"contracts/interfaces/IRoyaltySplitFactory.sol": {
+			"keccak256": "0xd411e174b8684a41c81cca8af8f099c4af3522caa85508c4848805f0565d7e42",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3eeda59a9bbbc7f1f33a5949d6913539647c2e20f56dbff2d71ae7b4b14aefca",
+				"dweb:/ipfs/QmQrC45Lhu5sGk4UVsHjq6T6ydh1P1hqMW1bTniPyyy7tr"
+			]
+		}
+	},
+	"version": 1
+}
